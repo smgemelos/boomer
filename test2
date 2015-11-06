@@ -1,0 +1,88 @@
+curl -X POST -d '{"name":"Linux Router","vnftype":"router","flavor":"docker","image":"ubuntu14.04","version":"2.0","template":"","distro":"","release":"","arch":"","startcmd":"/bin/bash"}' http://10.250.3.65:3000/vnf
+curl -X POST -d '{"name":"Linux FW","vnftype":"firewall","flavor":"docker","image":"ubuntu14.04","version":"2.0","template":"","distro":"","release":"","arch":"","startcmd":"/bin/bash"}' http://10.250.3.65:3000/vnf
+curl -X POST -d '{"name":"ATS","vnftype":"cache","flavor":"docker","image":"ubuntu14.04","version":"2.0","template":"","distro":"","release":"","arch":"","startcmd":""}' http://10.250.3.65:3000/vnf
+curl -X POST -d '{"name":"Garbage","vnftype":"cache","flavor":"docker","image":"ubuntu14.04","version":"2.0","template":"","distro":"","release":"","arch":"","startcmd":""}' http://10.250.3.65:3000/vnf
+
+curl -X GET http://10.250.3.65:3000/vnf/4
+
+curl -X GET http://10.250.3.65:3000/vnf
+
+curl -X POST -d '{"vnfid":3,"name":"Apache Traffic Server","vnftype":"cache","flavor":"docker","image":"ubuntu14.04","version":"2.0","template":"","distro":"","release":"","arch":"","startcmd":"/bin/bash"}' http://10.250.3.65:3000/vnf/3
+
+curl -X GET http://10.250.3.65:3000/vnf/3
+
+curl -X DELETE http://10.250.3.65:3000/vnf/4
+
+
+
+
+curl -X POST -d '{"level":1,"username":"Megan","password":"meganpass"}' http://10.250.3.65:3000/user
+curl -X POST -d '{"level":1,"username":"James","password":"jamespass"}' http://10.250.3.65:3000/user
+curl -X POST -d '{"level":1,"username":"Ari","password":"aripass"}' http://10.250.3.65:3000/user
+curl -X POST -d '{"level":2,"username":"Patrick","password":"patrickpass"}' http://10.250.3.65:3000/user
+curl -X POST -d '{"level":2,"username":"Steven","password":"stevenpass"}' http://10.250.3.65:3000/user
+curl -X POST -d '{"level":2,"username":"Fred","password":"Fredpass"}' http://10.250.3.65:3000/user
+
+curl -X GET http://10.250.3.65:3000/user/4
+
+curl -X GET -d '{}' http://10.250.3.65:3000/user
+
+curl -X GET -d '{"level":2}' http://10.250.3.65:3000/user
+
+curl -X POST -d '{"userid":4,"level":2,"username":"George","password":"password"}' http://10.250.3.65:3000/user/4
+
+curl -X GET http://10.250.3.65:3000/user/4
+
+curl -X GET -d '{"username":"George","password":"password"}' http://10.250.3.65:3000/login
+
+
+
+curl -X GET http://10.250.3.65:3000/user/4
+
+curl -X GET -d '{"username":"George","password":"password"}' http://10.250.3.65:3000/login
+
+
+curl -X GET http://10.250.3.65:3000/user/4
+
+
+
+
+
+curl -X POST -d '{"new":true,"userid":5,"topoid":0,"macaddr":"32:20:39:26:00:00","mgmtip":"192.168.10.10/24","mgmtgw":"192.168.10.1","publicip":"10.10.10.10/16","publicgw":"10.10.0.1","name":"steveCPE1","location":"stevehome"}' http://10.250.3.65:3000/cpe
+curl -X POST -d '{"new":false,"userid":5,"topoid":0,"macaddr":"32:20:39:26:00:01","mgmtip":"192.168.10.11/24","mgmtgw":"192.168.10.1","publicip":"10.10.10.20/16","publicgw":"10.10.0.1","name":"steveCPE2","location":"steveoffice"}' http://10.250.3.65:3000/cpe
+curl -X POST -d '{"new":true,"userid":1,"topoid":0,"macaddr":"32:20:39:26:00:02","mgmtip":"192.168.10.12/24","mgmtgw":"192.168.10.1","publicip":"10.10.10.30/16","publicgw":"10.10.0.1","name":"MeganCPE","location":"meganhome"}' http://10.250.3.65:3000/cpe
+curl -X POST -d '{"new":true,"userid":2,"topoid":0,"macaddr":"32:20:39:26:00:03","mgmtip":"192.168.10.13/24","mgmtgw":"192.168.10.1","publicip":"10.10.10.40/16","publicgw":"10.10.0.1","name":"jamesCPE","location":"jameshome"}' http://10.250.3.65:3000/cpe
+curl -X POST -d '{"new":true,"userid":3,"topoid":0,"macaddr":"32:20:39:26:00:04","mgmtip":"192.168.10.14/24","mgmtgw":"192.168.10.1","publicip":"10.10.10.50/15","publicgw":"10.10.0.1","name":"ariCPE","location":"arihome"}' http://10.250.3.65:3000/cpe
+curl -X POST -d '{"new":true,"userid":3,"topoid":0,"macaddr":"32:20:39:26:00:05","mgmtip":"192.168.10.15/24","mgmtgw":"192.168.10.1","publicip":"10.10.10.60/15","publicgw":"10.10.0.1","name":"ariCPE","location":"arihome"}' http://10.250.3.65:3000/cpe
+
+
+curl -X GET http://10.250.3.65:3000/cpe/4
+
+curl -X GET -d '{"userid":5}' http://10.250.3.65:3000/cpe
+
+curl -X POST -d '{"cpeid":3,"new":false,"userid":1,"topoid":0,"macaddr":"32:20:39:26:00:02","mgmtip":"192.168.10.16/24","mgmtgw":"192.168.10.1","publicip":"10.10.10.60/16","publicgw":"10.10.0.1","name":"MeganCpe","location":"meganoffice"}' http://10.250.3.65:3000/cpe/3
+
+curl -X GET http://10.250.3.65:3000/cpe/3
+
+curl -X DELETE http://10.250.3.65:3000/cpe/6
+
+curl -X GET http://10.250.3.65:3000/user/5/cpe
+
+
+
+
+curl -X POST -d '{"cpeid":1,"userid":5,"name":"basictopo","topo":"topology"}' http://10.250.3.65:3000/topo
+curl -X POST -d '{"cpeid":2,"userid":5,"name":"basictopo2","topo":"topology2"}' http://10.250.3.65:3000/topo
+curl -X POST -d '{"cpeid":5,"userid":5,"name":"basictopo3","topo":"topology3"}' http://10.250.3.65:3000/topo
+curl -X POST -d '{"cpeid":4,"userid":5,"name":"basictopo4","topo":"topology4"}' http://10.250.3.65:3000/topo
+
+curl -X GET http://10.250.3.65:3000/topo/4
+
+curl -X GET http://10.250.3.65:3000/topo
+
+curl -X POST -d '{"topoid":4,"cpeid":4,"userid":5,"name":"advancedtopo1","topo":"topology4"}' http://10.250.3.65:3000/topo/4
+
+curl -X GET http://10.250.3.65:3000/topo/4
+
+
+
